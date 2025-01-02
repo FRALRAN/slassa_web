@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Slaasa</title>
+    <link rel="stylesheet" href="css/resets.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-container">
+        <div class="logo">
+          <a href="index.html"><img src="img/logo.svg" alt="Slaasa Logo" /></a>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="site-cart">
+          <a href="#carrito" class="cart-link">Carrito (0)</a>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="contacto-page container">
+      <h1>Contáctanos</h1>
+      <form action="/contacto" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <!-- Puedes mostrar un mensaje tras enviar:
+    Si la URL contiene ?enviado=1, muestra un mensaje de éxito.
+    -->
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("enviado") === "1") {
+          alert("Mensaje enviado con éxito. ¡Gracias por contactarnos!");
+        } else if (urlParams.get("enviado") === "0") {
+          alert(
+            "Hubo un error al enviar el mensaje. Intenta de nuevo más tarde."
+          );
+        }
+      </script>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <p>&copy; 2024 Slaasa. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
